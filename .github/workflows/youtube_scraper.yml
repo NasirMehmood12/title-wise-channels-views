@@ -19,7 +19,8 @@ jobs:
           python-version: "3.9"
 
       - name: Install dependencies
-        run: pip install gspread pandas oauth2client googleapiclient
+        run: pip install gspread pandas oauth2client google-api-python-client
+
 
       - name: Run all scripts
         env:
