@@ -16,7 +16,7 @@ creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
 client = gspread.authorize(creds)
 
 # Open Google Sheet
-spreadsheet = client.open("YouTube Data")  # Change to your sheet name
+spreadsheet = client.open("title wise data")  # Change to your sheet name
 worksheet = spreadsheet.sheet1  # Select first sheet
 
 # YouTube API setup
