@@ -1,0 +1,44 @@
+name: Run YouTube Scrapers Daily
+
+on:
+  schedule:
+    - cron: "0 11 * * *"  # Runs daily at 4 PM Pakistan Time (UTC+5)
+  workflow_dispatch:  # Allows manual execution
+
+jobs:
+  run-scripts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install dependencies
+        run: pip install gspread pandas oauth2client googleapiclient
+
+      - name: Run all scripts
+        env:
+          GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
+        run: |
+          python scripts/geo_entertainment.py
+          python scripts/geo_news.py
+          python scripts/24_news.py
+          python scripts/92_news.py
+          python scripts/aaj_news.py
+          python scripts/ary_news.py
+          python scripts/Ary_digital.py
+          python scripts/samma_news.py
+          python scripts/bol_news.py
+          python scripts/Duniya_news.py
+          python script/Dawn_news.py
+          python scripts/Express_news.py
+          python scripts/GNN_news.py
+          python scripts/Hum_news.py
+          python scripts/samma_entertainment.py
+          python scripts/Neo_news.py
+          python scripts/Public_news.py
