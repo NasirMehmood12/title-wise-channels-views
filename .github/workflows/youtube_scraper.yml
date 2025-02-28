@@ -36,7 +36,7 @@ jobs:
           python scripts/samma_news.py
           python scripts/bol_news.py
           python scripts/Duniya_news.py
-          python script/Dawn_news.py
+          python scripts/Dawn_news.py
           python scripts/Express_news.py
           python scripts/GNN_news.py
           python scripts/Hum_news.py
